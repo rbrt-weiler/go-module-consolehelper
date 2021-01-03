@@ -6,12 +6,19 @@ Package consolehelper aids with pretty printing on the CLI.
 
 	import (
 		"fmt"
+		"os"
+
 		consolehelper "gitlab.com/rbrt-weiler/go-module-consolehelper"
 	)
 
 	func main() {
-		var cons consolehelper.ConsoleHelper
+		cons, consErr := consolehelper.New()
+		if consErr != nil {
+			fmt.Printf("Error: %s\n", consErr)
+			os.Exit(1)
+		}
 		fmt.Printf("%s\n", cons.Sprint("This line will be wrapped according to the console width."))
+		os.Exit(0)
 	}
 
 */
