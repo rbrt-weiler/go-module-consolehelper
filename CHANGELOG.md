@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Added
 
 1. This changelog.
+1. Go tests.
 
 ### Changed
 
 1. Updated package doc that is more complete than before.
+1. Signature of Sprint() matches fmt.Sprint() now.
 
 ## [0.1.0] - 2021-01-02
 
