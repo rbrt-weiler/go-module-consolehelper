@@ -74,6 +74,9 @@ func (c *ConsoleHelper) Sprintf(format string, a ...interface{}) string {
 }
 
 // Sprint is like fmt.Sprint, but with text wrapping based on console size.
-func (c *ConsoleHelper) Sprint(s string) string {
-	return c.Sprintf("%s", s)
+func (c *ConsoleHelper) Sprint(a ...interface{}) string {
+	if (c.Cols == 0 || c.Rows == 0) || c.AutoUpdate {
+		c.UpdateDimensions()
+	}
+	return text.WrapSoft(fmt.Sprint(a...), c.Cols)
 }
