@@ -65,18 +65,21 @@ func (c *ConsoleHelper) UpdateDimensions() {
 	c.Cols, c.Rows = consolesize.GetConsoleSize()
 }
 
-// Sprintf is like fmt.Sprintf, but with text wrapping based on console size.
-func (c *ConsoleHelper) Sprintf(format string, a ...interface{}) string {
+// _updateDimensions updates the ConsoleHelper instance with the current console dimensions if necessary.
+func (c *ConsoleHelper) _updateDimensions() {
 	if (c.Cols == 0 || c.Rows == 0) || c.AutoUpdate {
 		c.UpdateDimensions()
 	}
+}
+
+// Sprintf is like fmt.Sprintf, but with text wrapping based on console size.
+func (c *ConsoleHelper) Sprintf(format string, a ...interface{}) string {
+	c._updateDimensions()
 	return text.WrapSoft(fmt.Sprintf(format, a...), c.Cols)
 }
 
 // Sprint is like fmt.Sprint, but with text wrapping based on console size.
 func (c *ConsoleHelper) Sprint(a ...interface{}) string {
-	if (c.Cols == 0 || c.Rows == 0) || c.AutoUpdate {
-		c.UpdateDimensions()
-	}
+	c._updateDimensions()
 	return text.WrapSoft(fmt.Sprint(a...), c.Cols)
 }
