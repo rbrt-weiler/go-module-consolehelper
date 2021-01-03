@@ -10,8 +10,8 @@ Package consolehelper aids with pretty printing on the CLI.
 	)
 
 	func main() {
-		var cons comsolehelper.ConsoleHelper
-		fmt.Printf("%s\n", cons.Sprint("This line will be wrapped according to the comsole width."))
+		var cons consolehelper.ConsoleHelper
+		fmt.Printf("%s\n", cons.Sprint("This line will be wrapped according to the console width."))
 	}
 
 */

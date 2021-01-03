@@ -23,7 +23,7 @@ Initial public release.
 1. ConsoleHelper in general.
 1. ConsoleHelper.UpdateDimensions().
 1. ConsoleHelper.Sprintf().
-1. ComsoleHelper.Sprint().
+1. ConsoleHelper.Sprint().
 
 [Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v0.1.0...master
 [0.1.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.1.0
