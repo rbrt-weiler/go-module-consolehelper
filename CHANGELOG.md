@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## [Unreleased]
 
+(Nothing at this time.)
+
+## [0.2.0] - 2021-01-03
+
 ### Added
 
 1. This changelog.
@@ -28,4 +32,5 @@ Initial public release.
 1. ConsoleHelper.Sprint().
 
 [Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v0.1.0...master
+[0.2.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.2.0
 [0.1.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.1.0
