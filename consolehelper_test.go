@@ -137,3 +137,27 @@ func TestSprint(t *testing.T) {
 		}
 	}
 }
+
+func TestSprintln(t *testing.T) {
+	var cons ConsoleHelper
+	cons.Rows = testRows
+	cons.Cols = testCols
+
+	var str string
+	var strLen int
+	var newlinesExpected int
+	var newlinesFound int
+	for _, testStr := range testStrings {
+		strLen = len(testStr)
+		if strLen <= cons.Cols {
+			newlinesExpected = 1
+		} else {
+			newlinesExpected = strLen/cons.Cols + 1
+		}
+		str = cons.Sprintln(testStr)
+		newlinesFound = strings.Count(str, newlineSeq)
+		if newlinesExpected != newlinesFound {
+			t.Errorf("%d character string wrapped on a %d cols console (expected %d, found %d newlines)\n%s", strLen, cons.Cols, newlinesExpected, newlinesFound, str)
+		}
+	}
+}

@@ -90,3 +90,10 @@ func (c *ConsoleHelper) Sprint(a ...interface{}) string {
 	c._updateDimensions()
 	return text.WrapSoft(fmt.Sprint(a...), c.Cols)
 }
+
+// Sprintln is like fmt.Sprintln, but with text wrapping based on console size.
+func (c *ConsoleHelper) Sprintln(a ...interface{}) string {
+	c._updateDimensions()
+	//return text.WrapSoft(fmt.Sprintln(a...), c.Cols) // Does not work - final newline missing
+	return fmt.Sprintln(text.WrapSoft(fmt.Sprint(a...), c.Cols))
+}
