@@ -44,8 +44,8 @@ func TestNew(t *testing.T) {
 	if cons.AutoUpdate != false {
 		t.Errorf("New instance of ConsoleHelper with AutoUpdate != false")
 	}
+	// TODO: Revise once consolesize is test-safe.
 	/*
-		// TODO: Revise once consolesize is test-safe.
 		if cons.Rows == 0 {
 			t.Errorf("New instance of ConsoleHelper with Rows == 0")
 		}
@@ -65,8 +65,8 @@ func TestUpdateDimensions(t *testing.T) {
 		t.Errorf("New ConsoleHelper variable with Cols != 0")
 	}
 
+	// TODO: Revise once consolesize is test-safe.
 	/*
-		// TODO: Revise once consolesize is test-safe.
 		cons.UpdateDimensions()
 
 		if cons.Rows == 0 {
@@ -85,25 +85,19 @@ func TestSprintf(t *testing.T) {
 
 	var str string
 	var strLen int
-	var newlinesExpected bool
-	var newlines int
-	var newlinesFound bool
+	var newlinesExpected int
+	var newlinesFound int
 	for _, testStr := range testStrings {
 		strLen = len(testStr)
 		if strLen <= cons.Cols {
-			newlinesExpected = false
+			newlinesExpected = 0
 		} else {
-			newlinesExpected = true
+			newlinesExpected = strLen / cons.Cols
 		}
 		str = cons.Sprintf("%s", testStr)
-		newlines = strings.Count(str, newlineSeq)
-		if newlines == 0 {
-			newlinesFound = false
-		} else {
-			newlinesFound = true
-		}
+		newlinesFound = strings.Count(str, newlineSeq)
 		if newlinesExpected != newlinesFound {
-			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlines)
+			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlinesFound)
 		}
 	}
 }
@@ -115,25 +109,19 @@ func TestSprint(t *testing.T) {
 
 	var str string
 	var strLen int
-	var newlinesExpected bool
-	var newlines int
-	var newlinesFound bool
+	var newlinesExpected int
+	var newlinesFound int
 	for _, testStr := range testStrings {
 		strLen = len(testStr)
 		if strLen <= cons.Cols {
-			newlinesExpected = false
+			newlinesExpected = 0
 		} else {
-			newlinesExpected = true
+			newlinesExpected = strLen / cons.Cols
 		}
 		str = cons.Sprint(testStr)
-		newlines = strings.Count(str, newlineSeq)
-		if newlines == 0 {
-			newlinesFound = false
-		} else {
-			newlinesFound = true
-		}
+		newlinesFound = strings.Count(str, newlineSeq)
 		if newlinesExpected != newlinesFound {
-			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlines)
+			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlinesFound)
 		}
 	}
 }
