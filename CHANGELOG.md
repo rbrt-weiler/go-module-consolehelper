@@ -6,7 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## [Unreleased]
 
-(Nothing at this time.)
+### Added
+
+1. Sprintln().
 
 ## [0.2.0] - 2021-01-03
 
