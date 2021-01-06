@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Added
 
 1. Sprintln().
+1. Fprintf().
 
 ## [0.2.0] - 2021-01-03
 

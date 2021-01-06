@@ -26,6 +26,7 @@ package consolehelper
 
 import (
 	"fmt"
+	"io"
 
 	text "github.com/jedib0t/go-pretty/v6/text"
 	consolesize "github.com/nathan-fiscaletti/consolesize-go"
@@ -77,6 +78,12 @@ func (c *ConsoleHelper) _updateDimensions() {
 	if (c.Cols == 0 || c.Rows == 0) || c.AutoUpdate {
 		c.UpdateDimensions()
 	}
+}
+
+// Fprintf is like fmt.Fprintf, but with text wrapping based on console size.
+func (c *ConsoleHelper) Fprintf(w io.Writer, format string, a ...interface{}) (n int, err error) {
+	c._updateDimensions()
+	return fmt.Fprintf(w, c.Sprintf(format, a...))
 }
 
 // Sprintf is like fmt.Sprintf, but with text wrapping based on console size.

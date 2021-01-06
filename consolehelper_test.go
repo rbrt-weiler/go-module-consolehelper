@@ -1,6 +1,7 @@
 package consolehelper
 
 import (
+	"io/ioutil"
 	"strings"
 	"testing"
 )
@@ -76,6 +77,28 @@ func TestUpdateDimensions(t *testing.T) {
 			t.Errorf("New instance of ConsoleHelper with Cols == 0")
 		}
 	*/
+}
+
+func TestFprintf(t *testing.T) {
+	var cons ConsoleHelper
+	cons.Rows = testRows
+	cons.Cols = testCols
+
+	var str string
+	var strLen int
+	var charsWritten int
+	var writeErr error
+	for _, testStr := range testStrings {
+		str = cons.Sprint(testStr)
+		strLen = len(str)
+		charsWritten, writeErr = cons.Fprintf(ioutil.Discard, str)
+		if writeErr != nil {
+			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+		}
+		if charsWritten != strLen {
+			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
+		}
+	}
 }
 
 func TestSprintf(t *testing.T) {
