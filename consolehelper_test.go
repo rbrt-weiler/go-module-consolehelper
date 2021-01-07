@@ -159,7 +159,7 @@ func TestPrintf(t *testing.T) {
 		strLen = len(str)
 		charsWritten, writeErr = cons.Printf(testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not print string: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
@@ -181,7 +181,7 @@ func TestPrint(t *testing.T) {
 		strLen = len(str)
 		charsWritten, writeErr = cons.Print(testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not print string: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
@@ -203,7 +203,7 @@ func TestPrintln(t *testing.T) {
 		strLen = len(str)
 		charsWritten, writeErr = cons.Println(testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not print string: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
