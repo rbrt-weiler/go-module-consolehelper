@@ -98,6 +98,12 @@ func (c *ConsoleHelper) Fprintln(w io.Writer, a ...interface{}) (n int, err erro
 	return fmt.Fprintln(w, c.Sprint(a...))
 }
 
+// Printf is like fmt.Printf, but with text wrapping based on console size.
+func (c *ConsoleHelper) Printf(format string, a ...interface{}) (n int, err error) {
+	c._updateDimensions()
+	return fmt.Printf(c.Sprintf(format, a...))
+}
+
 // Sprintf is like fmt.Sprintf, but with text wrapping based on console size.
 func (c *ConsoleHelper) Sprintf(format string, a ...interface{}) string {
 	c._updateDimensions()
