@@ -110,6 +110,12 @@ func (c *ConsoleHelper) Print(a ...interface{}) (n int, err error) {
 	return fmt.Print(c.Sprint(a...))
 }
 
+// Println is like fmt.Println, but with text wrapping based on console size.
+func (c *ConsoleHelper) Println(a ...interface{}) (n int, err error) {
+	c._updateDimensions()
+	return fmt.Println(c.Sprint(a...))
+}
+
 // Sprintf is like fmt.Sprintf, but with text wrapping based on console size.
 func (c *ConsoleHelper) Sprintf(format string, a ...interface{}) string {
 	c._updateDimensions()

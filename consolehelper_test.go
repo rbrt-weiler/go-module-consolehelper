@@ -189,6 +189,28 @@ func TestPrint(t *testing.T) {
 	}
 }
 
+func TestPrintln(t *testing.T) {
+	var cons ConsoleHelper
+	cons.Rows = testRows
+	cons.Cols = testCols
+
+	var str string
+	var strLen int
+	var charsWritten int
+	var writeErr error
+	for _, testStr := range testStrings {
+		str = cons.Sprintln(testStr)
+		strLen = len(str)
+		charsWritten, writeErr = cons.Println(testStr)
+		if writeErr != nil {
+			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+		}
+		if charsWritten != strLen {
+			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
+		}
+	}
+}
+
 func TestSprintf(t *testing.T) {
 	var cons ConsoleHelper
 	cons.Rows = testRows

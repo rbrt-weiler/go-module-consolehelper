@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 1. Printf().
 1. Print().
+1. Println().
 
 ## [0.3.0] - 2021-01-07
 
