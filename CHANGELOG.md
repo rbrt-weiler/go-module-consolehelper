@@ -6,10 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## [Unreleased]
 
+(Nothing at this time.)
+
+## [0.3.0] - 2021-01-07
+
 ### Added
 
 1. Sprintln().
 1. Fprintf().
+1. Fprint().
+1. Fprintln().
 
 ## [0.2.0] - 2021-01-03
 
@@ -34,6 +40,7 @@ Initial public release.
 1. ConsoleHelper.Sprintf().
 1. ConsoleHelper.Sprint().
 
-[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v0.1.0...master
+[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v0.3.0...master
+[0.3.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.3.0
 [0.2.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.2.0
 [0.1.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.1.0
