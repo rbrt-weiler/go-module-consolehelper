@@ -91,7 +91,7 @@ func TestFprintf(t *testing.T) {
 	for _, testStr := range testStrings {
 		str = cons.Sprint(testStr)
 		strLen = len(str)
-		charsWritten, writeErr = cons.Fprintf(ioutil.Discard, str)
+		charsWritten, writeErr = cons.Fprintf(ioutil.Discard, testStr)
 		if writeErr != nil {
 			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
 		}
