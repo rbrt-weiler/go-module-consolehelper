@@ -55,16 +55,12 @@ type ConsoleHelper struct {
 func New() (c ConsoleHelper, err error) {
 	c = ConsoleHelper{}
 	err = nil
-	/*
-		// Currently not feasible - consolesize will panic during testing
-		// TODO: Revise once consolesize is test-safe.
-		c.UpdateDimensions()
-		if c.Rows == 0 || c.Cols == 0 {
-			c.Rows = -1
-			c.Cols = -1
-			err = fmt.Errorf("the console dimensions could not be initialized")
-		}
-	*/
+	c.UpdateDimensions()
+	if c.Rows == 0 || c.Cols == 0 {
+		c.Rows = -1
+		c.Cols = -1
+		err = fmt.Errorf("the console dimensions could not be initialized")
+	}
 	return
 }
 
