@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Added
 
 1. Contributing guide.
+1. VS Code Dev Container config.
+
+### Changed
+
+1. New() returns 0 instead of -1 for the dimensions in case the terminal dimensions cannot be determined.
 
 ## [0.4.0] - 2021-01-08
 
