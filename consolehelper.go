@@ -57,8 +57,6 @@ func New() (c ConsoleHelper, err error) {
 	err = nil
 	c.UpdateDimensions()
 	if c.Rows == 0 || c.Cols == 0 {
-		c.Rows = -1
-		c.Cols = -1
 		err = fmt.Errorf("the console dimensions could not be initialized")
 	}
 	return
