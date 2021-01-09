@@ -40,20 +40,21 @@ func TestConsoleHelper(t *testing.T) {
 }
 
 func TestNew(t *testing.T) {
-	cons, _ := New()
+	cons, consErr := New()
 
-	if cons.AutoUpdate != false {
-		t.Errorf("New instance of ConsoleHelper with AutoUpdate != false")
+	// go test is a headless environment without a proper terminal, so errors are expected in this scenario.
+	if consErr == nil {
+		t.Errorf("New headless instance of ConsoleHelper with error == nil")
 	}
-	// TODO: Revise once consolesize is test-safe.
-	/*
-		if cons.Rows == 0 {
-			t.Errorf("New instance of ConsoleHelper with Rows == 0")
-		}
-		if cons.Cols == 0 {
-			t.Errorf("New instance of ConsoleHelper with Cols == 0")
-		}
-	*/
+	if cons.AutoUpdate != false {
+		t.Errorf("New headless instance of ConsoleHelper with AutoUpdate != false")
+	}
+	if cons.Rows != 0 {
+		t.Errorf("New headless instance of ConsoleHelper with Rows != 0")
+	}
+	if cons.Cols != 0 {
+		t.Errorf("New headless instance of ConsoleHelper with Cols != 0")
+	}
 }
 
 func TestUpdateDimensions(t *testing.T) {
@@ -66,17 +67,16 @@ func TestUpdateDimensions(t *testing.T) {
 		t.Errorf("New ConsoleHelper variable with Cols != 0")
 	}
 
-	// TODO: Revise once consolesize is test-safe.
-	/*
-		cons.UpdateDimensions()
+	cons.Rows = testRows
+	cons.Cols = testCols
+	cons.UpdateDimensions()
 
-		if cons.Rows == 0 {
-			t.Errorf("New instance of ConsoleHelper with Rows == 0")
-		}
-		if cons.Cols == 0 {
-			t.Errorf("New instance of ConsoleHelper with Cols == 0")
-		}
-	*/
+	if cons.Rows != 0 {
+		t.Errorf("Updated headless ConsoleHelper variable with Rows != 0")
+	}
+	if cons.Cols != 0 {
+		t.Errorf("Updated headless ConsoleHelper variable with Cols != 0")
+	}
 }
 
 func TestFprintf(t *testing.T) {
@@ -230,7 +230,7 @@ func TestSprintf(t *testing.T) {
 		str = cons.Sprintf("%s", testStr)
 		newlinesFound = strings.Count(str, newlineSeq)
 		if newlinesExpected != newlinesFound {
-			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlinesFound)
+			t.Errorf("%d character string wrapped on a %d cols console (expected %d, found %d newlines)", strLen, cons.Cols, newlinesExpected, newlinesFound)
 		}
 	}
 }
@@ -254,7 +254,7 @@ func TestSprint(t *testing.T) {
 		str = cons.Sprint(testStr)
 		newlinesFound = strings.Count(str, newlineSeq)
 		if newlinesExpected != newlinesFound {
-			t.Errorf("%d character string wrapped on a %d cols console (%d newlines)", strLen, cons.Cols, newlinesFound)
+			t.Errorf("%d character string wrapped on a %d cols console (expected %d, found %d newlines)", strLen, cons.Cols, newlinesExpected, newlinesFound)
 		}
 	}
 }
@@ -278,7 +278,7 @@ func TestSprintln(t *testing.T) {
 		str = cons.Sprintln(testStr)
 		newlinesFound = strings.Count(str, newlineSeq)
 		if newlinesExpected != newlinesFound {
-			t.Errorf("%d character string wrapped on a %d cols console (expected %d, found %d newlines)\n%s", strLen, cons.Cols, newlinesExpected, newlinesFound, str)
+			t.Errorf("%d character string wrapped on a %d cols console (expected %d, found %d newlines)", strLen, cons.Cols, newlinesExpected, newlinesFound)
 		}
 	}
 }
