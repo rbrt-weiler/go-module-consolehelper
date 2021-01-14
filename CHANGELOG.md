@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Changed
 
 1. New() returns 0 instead of -1 for the dimensions in case the terminal dimensions cannot be determined.
+1. Updated documentation.
 
 ## [0.4.0] - 2021-01-08
 
