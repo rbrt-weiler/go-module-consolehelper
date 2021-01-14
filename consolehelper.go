@@ -1,6 +1,6 @@
 /*
 
-Package consolehelper aids with pretty printing on the CLI.
+Package consolehelper aids with pretty printing on the CLI. It provides fmt-like functionality with integrated text wrapping. The border for text wrapping is determined automatically, based on the console size.
 
 	package main
 
@@ -12,12 +12,15 @@ Package consolehelper aids with pretty printing on the CLI.
 	)
 
 	func main() {
+		fox := "The quick brown fox jumps over the lazy dog."
 		cons, consErr := consolehelper.New()
 		if consErr != nil {
-			fmt.Printf("Error: %s\n", consErr)
+			fmt.Printf("Error creating consolehelper instance: %s\n", consErr)
 			os.Exit(1)
 		}
-		fmt.Printf("%s\n", cons.Sprint("This line will be wrapped according to the console width."))
+		cons.Println(fox) // will be wrapped if necessary
+		cons.Cols = 15    // fake a 15 column console
+		cons.Println(fox) // will be wrapped
 		os.Exit(0)
 	}
 
