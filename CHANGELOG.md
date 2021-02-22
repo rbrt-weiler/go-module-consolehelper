@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 ## [Unreleased]
 
+(Nothing as of now.)
+
+## [1.0.1] - 2021-02-22
+
 ### Changed
 
 1. Added gopls to the default tools used by the VS Code Dev Container.
@@ -65,7 +69,8 @@ Initial public release.
 1. ConsoleHelper.Sprintf().
 1. ConsoleHelper.Sprint().
 
-[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v1.0.0...master
+[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v1.0.1...master
+[1.0.1]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v1.0.1
 [1.0.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v1.0.0
 [0.4.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.4.0
 [0.3.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.3.0
