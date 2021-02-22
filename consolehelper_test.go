@@ -1,7 +1,7 @@
 package consolehelper
 
 import (
-	"io/ioutil"
+	"io"
 	"strings"
 	"testing"
 )
@@ -91,9 +91,9 @@ func TestFprintf(t *testing.T) {
 	for _, testStr := range testStrings {
 		str = cons.Sprint(testStr)
 		strLen = len(str)
-		charsWritten, writeErr = cons.Fprintf(ioutil.Discard, testStr)
+		charsWritten, writeErr = cons.Fprintf(io.Discard, testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not write to io.Discard: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
@@ -113,9 +113,9 @@ func TestFprint(t *testing.T) {
 	for _, testStr := range testStrings {
 		str = cons.Sprint(testStr)
 		strLen = len(str)
-		charsWritten, writeErr = cons.Fprint(ioutil.Discard, testStr)
+		charsWritten, writeErr = cons.Fprint(io.Discard, testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not write to io.Discard: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
@@ -135,9 +135,9 @@ func TestFprintln(t *testing.T) {
 	for _, testStr := range testStrings {
 		str = cons.Sprintln(testStr)
 		strLen = len(str)
-		charsWritten, writeErr = cons.Fprintln(ioutil.Discard, testStr)
+		charsWritten, writeErr = cons.Fprintln(io.Discard, testStr)
 		if writeErr != nil {
-			t.Errorf("Could not write to ioutil.Discard: %s", writeErr)
+			t.Errorf("Could not write to io.Discard: %s", writeErr)
 		}
 		if charsWritten != strLen {
 			t.Errorf("Wrote %d out of %d chars", charsWritten, strLen)
