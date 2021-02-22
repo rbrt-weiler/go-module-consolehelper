@@ -9,6 +9,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 ### Changed
 
 1. Added gopls to the default tools used by the VS Code Dev Container.
+1. No longer using ioutil-based code due to [deprecation of ioutil](https://golang.org/doc/go1.16#ioutil).
+1. The included DevContainer has been upgraded to use [go1.16](https://golang.org/doc/go1.16).
 
 ## [1.0.0] - 2021-01-14
 
