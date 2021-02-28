@@ -8,6 +8,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 (Nothing as of now.)
 
+## [1.0.2] - 2021-02-28
+
+### Changed
+
+1. Update dependencies.
+
+### Fixed
+
+1. Update go.mod to reflect the need for go1.16. This is due to the move away from ioutil.
+
 ## [1.0.1] - 2021-02-22
 
 ### Changed
@@ -69,7 +79,8 @@ Initial public release.
 1. ConsoleHelper.Sprintf().
 1. ConsoleHelper.Sprint().
 
-[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v1.0.1...master
+[Unreleased]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/compare/v1.0.2...master
+[1.0.2]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v1.0.2
 [1.0.1]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v1.0.1
 [1.0.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v1.0.0
 [0.4.0]: https://gitlab.com/rbrt-weiler/go-module-consolehelper/-/tree/v0.4.0

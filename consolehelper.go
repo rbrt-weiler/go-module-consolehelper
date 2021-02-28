@@ -39,7 +39,7 @@ const (
 	// ModuleName contains the short name of the module.
 	ModuleName string = "consolehelper"
 	// ModuleVersion contains the version number of the module.
-	ModuleVersion string = "1.0.1"
+	ModuleVersion string = "1.0.2"
 	// ModuleURL contains the URL where the module can be retrieved.
 	ModuleURL string = "https://gitlab.com/rbrt-weiler/go-module-consolehelper"
 )
